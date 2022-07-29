@@ -1,0 +1,11 @@
+.idea/
+#ignore any directory in the projects named .idea (the slash indicates directory instewad of director or file )
+#If you put a slash in front it indicates the root directory
+.gradle/
+build/
+
+*.iml
+.floo*
+#Any project that has floo in it
+
+.DS_Store
