@@ -22,18 +22,15 @@ public class TestMain {
     deck.sort(); //NOTE shows it put back in natural order.
     System.out.println(deck);
 
-
-    deck.sort(new Comparator<Card>() {//NOTE you're now passing an instance of Comparator card directly into the .sort method. Now its an anonymous class.
-
-      @Override
-      public int compare(Card card1, Card card2) {
-        int comparison = card1.getRank().compareTo(card2.getRank());
-        if(comparison == 0){
-          comparison = card1.getSuit().compareTo(card2.getSuit());
-        }
-        return comparison;
-      }//NOTE this is an example of a strategy.. Rather than creating subclasses of Deck that sort in different way, it used comparators to provide a different strategy of comparator. You can now just use this to keep changing the way the deck is sorted.
-
+    //NOTE still this is an example of a strategy.. Rather than creating subclasses of Deck that sort in different way, it used comparators to provide a different strategy of comparator. You can now just use this to keep changing the way the deck is sorted.
+    //NOTE This has been changed from anon class to a lambda function. These curly braces show its a statement lambda. Used anytime there's more than one expression inside lambda
+    //NOTE Compiler knows the two params here are of type Card bc a sort method was written in deck who's param was Comparator<Card>
+    deck.sort((card1, card2) -> {
+      int comparison = card1.getRank().compareTo(card2.getRank());
+      if(comparison == 0){
+        comparison = card1.getSuit().compareTo(card2.getSuit());
+      }
+      return comparison;
     });
     System.out.println("Rank first sorter"+ deck);
 
