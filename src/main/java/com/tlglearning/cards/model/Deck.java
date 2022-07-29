@@ -3,6 +3,7 @@ package com.tlglearning.cards.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -37,6 +38,14 @@ public class Deck implements Iterable <Card> {
     Collections.shuffle(cards, rng);
   }
 
+  public void sort(){
+    sort(null);//NOTE when you pass in null it uses the natural order to sort. This first one invokes the second and may pass in a null value.
+  }
+
+  public void sort(Comparator<Card> comparator){
+    cards.sort(comparator); //NOTE this may be called above with a null value. .sort is a method of List.
+  }
+
   @Override
   public Iterator<Card> iterator() {
     return Collections.unmodifiableList(cards).iterator();
@@ -46,4 +55,5 @@ public class Deck implements Iterable <Card> {
   public String toString() {
     return cards.toString();
   }
+
 }
