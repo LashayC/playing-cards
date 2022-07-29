@@ -13,4 +13,5 @@ public class RankFirstComparator implements Comparator<Card>{
     }
     return comparison;
   }
+  //NOTE this is an example of a strategy.. Rather than creating subclasses of Deck that sort in different way, it used comparators to provide a different strategy of comparator. You can now just use this to keep changing the way the deck is sorted.
 }
