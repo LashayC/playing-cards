@@ -17,12 +17,18 @@ public enum Suit {
     this.symbol = symbol;
     this.color = color;
   }
+  public char getSymbol() {
+    return symbol;
+  }
 
   public Color getColor() {
     return color;
   }
 
-  public char getSymbol() {
-    return symbol;
+  public enum Color {
+    BLACK, RED
   }
+
+
+
 }
